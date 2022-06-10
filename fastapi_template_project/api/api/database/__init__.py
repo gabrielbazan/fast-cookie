@@ -1,14 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from environment import get_database_uri
-
-
-database_uri = get_database_uri()
+from settings import settings
 
 
 Session = sessionmaker()
-engine = create_engine(database_uri)
+engine = create_engine(settings.database_uri)
 Session.configure(bind=engine)
 
 

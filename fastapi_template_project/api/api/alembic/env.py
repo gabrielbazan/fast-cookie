@@ -5,7 +5,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from environment import get_database_uri
+from settings import settings
 
 
 # this is the Alembic Config object, which provides
@@ -42,9 +42,8 @@ def run_migrations_offline():
     script output.
 
     """
-    url = get_database_uri()
     context.configure(
-        url=url,
+        url=settings.database_uri,
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
@@ -63,7 +62,7 @@ def run_migrations_online():
     """
     configuration = config.get_section(config.config_ini_section)
 
-    configuration["sqlalchemy.url"] = get_database_uri()
+    configuration["sqlalchemy.url"] = settings.database_uri
 
     connectable = engine_from_config(
         configuration,
