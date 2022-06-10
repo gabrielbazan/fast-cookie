@@ -6,6 +6,10 @@ from pydantic import BaseSettings
 SETTINGS_FILE_PATH = "settings.env"
 
 
+ROOT_ROUTE = "/"
+IDENTIFIER_ROUTE = "/{identifier}"
+
+
 class Settings(BaseSettings):
     database_host: str
     database_port: str

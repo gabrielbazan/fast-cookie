@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, status
-from settings import settings
+from settings import settings, ROOT_ROUTE, IDENTIFIER_ROUTE
 from database import Session, session_scope
 from database.models import Todo
-from common import ROOT_ROUTE, IDENTIFIER_ROUTE, paginate_list, read, get_or_raise
+from serialization.serialization import paginate_list, read, get_or_raise
 from serialization.models import TodoModel, TodoCreateOrEdit, TodoPaginatedList
 
 

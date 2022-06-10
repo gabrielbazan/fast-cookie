@@ -5,10 +5,6 @@ from database import Session, Base
 from serialization.base_models import PaginatedListField
 
 
-ROOT_ROUTE = "/"
-IDENTIFIER_ROUTE = "/{identifier}"
-
-
 def paginate_list(
     session: Session,
     model: Base,
