@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, status, Response
 from settings import settings, ROOT_ROUTE, IDENTIFIER_ROUTE
 from database import Session, session_scope
 from database.models import Todo
@@ -55,3 +55,4 @@ def update_todo(
 def delete_todo(identifier: int, session: Session = Depends(session_scope)):
     instance = get_or_raise(session, Todo, id=identifier)
     session.delete(instance)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
