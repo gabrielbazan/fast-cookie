@@ -3,9 +3,6 @@ from functools import lru_cache
 from pydantic import BaseSettings
 from staging_level import get_environment_file
 
-# TODO: This setting is duplicated. It's also in alembic.ini#sqlalchemy.url
-DATABASE_URI = "postgresql://fastapi_template_project:fastapi_template_project@database/fastapi_template_project"
-
 
 ENVIRONMENT_FILE = get_environment_file()
 
