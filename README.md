@@ -6,12 +6,13 @@ If you're starting a new project, this is for you!
 
 ## What is this about?
 
-It can be a starting point to quickly start building your app without having to reinvent
+It is a starting point to quickly start building your app without having to reinvent
 the wheel, and therefore focusing on what's important, saving you time while keeping good practices and 
 having a well-organized project.
 
 You start with an FastAPI API and a relational database, with CORS, [Alembic](https://alembic.sqlalchemy.org/en/latest/) 
-database migrations, unit tests, and a cool way to configure your service. From there, you can scale your project depending on what you need.
+database migrations, unit tests, a cool way to configure your service, and GIT hooks for code-formatting 
+and code-style checking (black, isort, flake8). From there, you can scale your project depending on what you need.
 
 By default, it comes with a [PostgreSQL](https://www.postgresql.org/) database. But as it uses [SQLAlchemy](https://www.sqlalchemy.org/), you can 
 use any relational database. Just [change the Docker image](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/docker-compose.yml#L12), and 
@@ -31,7 +32,7 @@ Or this (HTTPS):
 cookiecutter https://github.com/gabrielbazan/fastapi_template_project.git
 ```
 
-You'll be prompted to enter a few project config values, and then you're set.
+You'll be prompted to enter a few project config values.
 
 
 ## How do I run my new project?
@@ -51,8 +52,12 @@ And that's all. Your new API is now running in the port you specified.
 
 Hit the API root with any browser. For example, with CURL (in the case where you're using port 5000):
 ```shell
-curl localhost:5000
+curl localhost:{api_port}
 ```
+
+Check the API docs! http://localhost:{api_port}/docs
+
+And the alternative API docs! http://localhost:{api_port}/redocs
 
 
 ## Ok cool, so how do I add my awesome things?
@@ -254,14 +259,23 @@ cd {project_package_name}/{project_package_name}/api/api
 ```
 
 
-### Committing and running git hooks
+### Initializing the repo, committing and running git hooks
 
 You need to init GIT before adding the hooks
 ```shell
 git init
 ```
 
+Install the pre-commit hooks:
 ```shell
 python -m pip install pre-commit
 pre-commit install
+```
+
+Add all your changes and commit. On the first commit ``pre-commit`` will install the hooks, these are installed in 
+their own environments and will take a short while to install on the first run. Subsequent checks will be 
+significantly faster.
+```shell
+git add -A
+git commit -m "First commit"
 ```
