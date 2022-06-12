@@ -57,7 +57,7 @@ curl localhost:{api_port}
 
 Check the API docs! http://localhost:{api_port}/docs
 
-And the alternative API docs! http://localhost:{api_port}/redocs
+And the alternative API docs! http://localhost:{api_port}/redoc
 
 
 ## Ok cool, so how do I add my awesome things?
