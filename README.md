@@ -1,1 +1,2 @@
-# FastApi Template Project
+# {{ cookiecutter.project_name }}
+
