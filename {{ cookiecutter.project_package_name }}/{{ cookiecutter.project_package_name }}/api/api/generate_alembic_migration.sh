@@ -1,6 +1,6 @@
 
 
-PROJECT_NAME="{{ cookiecutter.project_name }}"
+PROJECT_NAME="{{ cookiecutter.project_package_name }}"
 API_SERVICE_NAME="api"
 CONTAINER_NAME="${PROJECT_NAME}-${API_SERVICE_NAME}-1"
 
