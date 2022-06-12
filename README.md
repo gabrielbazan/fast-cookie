@@ -252,3 +252,16 @@ def delete_todo(identifier: int, session: Session = Depends(session_scope)):
 cd {project_package_name}/{project_package_name}/api/api
 ./run_unit_tests.sh
 ```
+
+
+### Committing and running git hooks
+
+You need to init GIT before adding the hooks
+```shell
+git init
+```
+
+```shell
+python -m pip install pre-commit
+pre-commit install
+```
