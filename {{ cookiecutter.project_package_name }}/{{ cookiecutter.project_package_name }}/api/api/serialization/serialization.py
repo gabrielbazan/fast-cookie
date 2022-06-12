@@ -1,8 +1,9 @@
 from typing import Any, Dict, List, Tuple
+
+from database import Base, Session
 from fastapi import HTTPException, status
-from sqlalchemy.orm.exc import NoResultFound
-from database import Session, Base
 from serialization.base_models import PaginatedListField
+from sqlalchemy.orm.exc import NoResultFound
 
 
 def paginate_list(

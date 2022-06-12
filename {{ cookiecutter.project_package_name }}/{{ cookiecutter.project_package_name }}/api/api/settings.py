@@ -1,7 +1,7 @@
-from typing import Optional, List
 from functools import lru_cache
-from pydantic import BaseSettings
+from typing import List, Optional
 
+from pydantic import BaseSettings
 
 SETTINGS_FILE_PATH = "settings.env"
 

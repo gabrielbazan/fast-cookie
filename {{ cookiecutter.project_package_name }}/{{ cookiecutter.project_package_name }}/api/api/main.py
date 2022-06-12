@@ -1,8 +1,9 @@
 from typing import List
-from fastapi import FastAPI, APIRouter
-from settings import settings
-from routers import ALL_ROUTERS
+
 from cors import configure_cors
+from fastapi import APIRouter, FastAPI
+from routers import ALL_ROUTERS
+from settings import settings
 
 
 def include_routers(app: FastAPI, routers: List[APIRouter]) -> None:

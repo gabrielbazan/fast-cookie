@@ -1,4 +1,4 @@
-from database import Session, Base
+from database import Base, Session
 
 
 def exists(session: Session, model: Base, **kwargs) -> bool:
