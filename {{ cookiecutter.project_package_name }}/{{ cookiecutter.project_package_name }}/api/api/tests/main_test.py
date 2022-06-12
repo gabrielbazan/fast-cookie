@@ -4,7 +4,6 @@ from main import app
 
 
 class MainTestCase(TestCase):
-
     def test_root(self):
         client = TestClient(app)
 
