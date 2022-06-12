@@ -1,5 +1,6 @@
 from typing import List
 from fastapi import FastAPI, APIRouter
+from settings import settings
 from routers import ALL_ROUTERS
 from cors import configure_cors
 
@@ -16,4 +17,4 @@ include_routers(app, ALL_ROUTERS)
 
 @app.get("/")
 def root():
-    return {"discovery": "API"}
+    return {"discovery": f"{settings.project_name} API root"}

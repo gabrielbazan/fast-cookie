@@ -11,15 +11,14 @@ IDENTIFIER_ROUTE = "/{identifier}"
 
 
 class Settings(BaseSettings):
+    project_name: str
+
     database_host: str
     database_port: str
     database_driver: str
     database_user: str
     database_password: str
     database_name: str
-
-    todos_route: str = "/todos"
-    todos_tag: str = "Todos"
 
     default_limit: int = 10
     default_offset: int = 0

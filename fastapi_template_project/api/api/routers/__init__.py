@@ -1,4 +1,6 @@
-from . import todos
+from typing import List
+from fastapi import APIRouter
 
 
-ALL_ROUTERS = [todos.router]
+# Add your APIRouters to this list
+ALL_ROUTERS: List[APIRouter] = []

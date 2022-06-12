@@ -3,7 +3,7 @@
 
 HOST=${1}
 PORT=${2}
-TIME=3
+TIME=2
 
 
 echo "Waiting for '${HOST}:${PORT}' to start..."
