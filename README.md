@@ -198,13 +198,13 @@ from fastapi import Depends
 from settings import IDENTIFIER_ROUTE
 from database import Session, session_scope
 from database.models import Todo
-from serialization.serialization import read
+from serialization.serialization import get_or_raise
 from serialization.models import TodoModel
 
 
 @router.get(IDENTIFIER_ROUTE, response_model=TodoModel)
 def read_todo(identifier: int, session: Session = Depends(session_scope)):
-    return read(session, Todo, identifier)
+    return get_or_raise(session, Todo, id=identifier)
 ```
 
 
