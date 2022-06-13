@@ -1,4 +1,5 @@
 
+
 VIRTUALENV_PATH="venv"
 
 PROJECT_PACKAGE_NAME="{{ cookiecutter.project_package_name }}"
@@ -7,7 +8,7 @@ REQUIREMENTS_FILE_NAME="requirements.frozen"
 REQUIREMENTS_FILE_PATH="${PROJECT_PACKAGE_NAME}/${API_SERVICE_NAME}/${API_SERVICE_NAME}/${REQUIREMENTS_FILE_NAME}"
 
 
-create_venv:
+venv:
 	echo "Creating virtualenv..."
 	python3 -m venv "${VIRTUALENV_PATH}"
 
@@ -18,9 +19,6 @@ create_venv:
 
 
 install_development_dependencies:
-	echo "Installing dependencies..."
+	echo "Installing development dependencies..."
 	sudo apt install python3.10-venv
-	sudo apt install libpq-dev
-	sudo apt install python3-dev
-	sudo apt install build-essential
 	echo "Done!"
