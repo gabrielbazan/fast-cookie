@@ -13,13 +13,6 @@ IDENTIFIER_ROUTE = "/{identifier}"
 class Settings(BaseSettings):
     project_name: str
 
-    database_host: str
-    database_port: str
-    database_driver: str
-    database_user: str
-    database_password: str
-    database_name: str
-
     default_limit: int = 10
     default_offset: int = 0
 
@@ -27,6 +20,14 @@ class Settings(BaseSettings):
     cors_allow_origins: Optional[List[str]]
     cors_allow_methods: Optional[List[str]]
     cors_allow_headers: Optional[List[str]]
+
+    # {%- if cookiecutter.add_database == 'Yes' %}
+    database_host: str
+    database_port: str
+    database_driver: str
+    database_user: str
+    database_password: str
+    database_name: str
 
     @property
     def database_uri(self):
@@ -36,6 +37,8 @@ class Settings(BaseSettings):
             f"@{self.database_host}:{self.database_port}"
             f"/{self.database_name}"
         )
+
+    # {%- endif %}
 
     class Config:
         env_file = SETTINGS_FILE_PATH

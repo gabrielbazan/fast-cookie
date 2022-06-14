@@ -1,6 +1,9 @@
 from keyword import iskeyword
 from sys import exit
 
+PROJECT_PACKAGE_NAME = "{{ cookiecutter.project_package_name }}"
+API_PORT = "{{ cookiecutter.api_port }}"
+
 
 def validate_project_package_name(package_name: str) -> None:
     if not package_name.isidentifier() or iskeyword(package_name):
@@ -25,8 +28,8 @@ def validate_api_port(port_number: str) -> None:
 
 
 VALIDATIONS = {
-    "{{ cookiecutter.project_package_name }}": validate_project_package_name,
-    "{{ cookiecutter.api_port }}": validate_api_port,
+    PROJECT_PACKAGE_NAME: validate_project_package_name,
+    API_PORT: validate_api_port,
 }
 
 
