@@ -26,7 +26,4 @@ def build_paginated_list_query(
 ):
     if order_by:
         list_query = list_query.order_by(*order_by)
-
-    query = list_query.offset(offset).limit(limit)
-
-    return query
+    return list_query.offset(offset).limit(limit)
