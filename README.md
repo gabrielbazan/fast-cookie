@@ -1,22 +1,25 @@
-# FastAPI Project Template
+# Fast Cookie - FastAPI Boilerplate
 
-Tired of reinventing the wheel everytime you need to start a new [FastAPI](https://fastapi.tiangolo.com/) project? 
-If you're starting a new project, this is for you!
+Tired of reinventing the wheel everytime you start a new [FastAPI](https://fastapi.tiangolo.com/) project? 
+This is for you!
 
 
-## What is this about?
+## About
 
-It is a starting point to quickly start building your app without having to reinvent
-the wheel, and therefore focusing on what's important, saving you time while keeping good practices and 
-having a well-organized project.
+It is a starting point to quickly start building your app without reinventing the wheel, and therefore focusing 
+on becoming your idea true, while keeping good practices and having a well-organized project.
 
-You start with an FastAPI API and a relational database, with CORS, [Alembic](https://alembic.sqlalchemy.org/en/latest/) 
-database migrations, unit tests, a cool way to configure your service, and GIT hooks for code-formatting 
-and code-style checking (black, isort, flake8). From there, you can scale your project depending on what you need.
+You start with a dockerized FastAPI API, with CORS, unit tests, a cool way to configure it, and GIT hooks for 
+code-formatting and code-style checking ([black](https://github.com/psf/black), [isort](https://github.com/PyCQA/isort), 
+[flake8](https://github.com/PyCQA/flake8)). From there, you can scale your project depending on what you need.
 
-By default, it comes with a [PostgreSQL](https://www.postgresql.org/) database. But as it uses [SQLAlchemy](https://www.sqlalchemy.org/), you can 
-use any relational database. Just [change the Docker image](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/docker-compose.yml#L12), and 
-[configure it](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/database.env).
+If you needed, you can also start with a relational database, [Alembic](https://alembic.sqlalchemy.org/en/latest/) 
+database migrations, session management methods,
+
+By default, it comes with a [PostgreSQL](https://www.postgresql.org/) database. 
+But as it uses [SQLAlchemy](https://www.sqlalchemy.org/), you can use any relational database. 
+Just [change the Docker image](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/docker-compose.yml#L12), 
+and [configure it](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/database.env).
 
 
 ## How do I start my project from this template?
