@@ -1,17 +1,20 @@
 # Fast Cookie - FastAPI Boilerplate
 
-Tired of reinventing the wheel everytime you start a new [FastAPI](https://fastapi.tiangolo.com/) project? 
+Tired of reinventing the wheel everytime you start a [FastAPI](https://fastapi.tiangolo.com/) project? 
 This is for you!
 
 
 ## About
 
-It is a starting point to quickly start building your app without reinventing the wheel, and therefore focusing 
-on becoming your idea true, while keeping good practices and having a well-organized project.
+Fast Cookie is a FastAPI project generator you can use to quickly get started with your idea, instead of reinventing the
+wheel. 
 
-You start with a dockerized FastAPI API, with CORS, unit tests, a cool way to configure it, and GIT hooks for 
+You get a well-organized project, with a dockerized FastAPI API, CORS, a cool way to configure it, unit tests. From there, you can scale your project depending on what you need.
+
+GIT hooks for 
 code-formatting and code-style checking ([black](https://github.com/psf/black), [isort](https://github.com/PyCQA/isort), 
-[flake8](https://github.com/PyCQA/flake8)). From there, you can scale your project depending on what you need.
+[flake8](https://github.com/PyCQA/flake8))
+
 
 If you needed, you can also start with a relational database, [Alembic](https://alembic.sqlalchemy.org/en/latest/) 
 database migrations, session management methods,
