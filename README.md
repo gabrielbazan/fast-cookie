@@ -124,6 +124,54 @@ git push -u origin main
 ```
 
 
+## Create the virtualenv
+
+You can install the API's requirements, and its test requirements, in a virtualenv. This way, you can keep your system
+interpreter clean. You can then use this virtualenv to run unit tests, and also your IDE can inspect packages from there
+(for autocompletion and such).
+
+First, go to the API directory:
+```shell
+cd api/api/
+```
+
+If you use Ubuntu and don't have _python-venv_ installed, install it:
+```shell
+make install_venv
+```
+
+To create the virtualenv, run:
+```shell
+make create_venv
+```
+
+To install the requirements:
+```shell
+make install_reqs_in_venv
+```
+
+And to install the test requirements:
+```shell
+make install_test_reqs_in_venv
+```
+
+## Run unit tests
+
+The template comes with some unit tests, which you can already run. As you add unit tests, you can run them the same
+way too.
+
+First, make sure you're in the API directory:
+```shell
+cd api/api/
+```
+
+After creating the virtualenv, and installed the requirements and test requirements, run the following to run all unit
+tests:
+```shell
+make run_unit_tests
+```
+
+
 ## Ok cool, so how do I add my awesome things?
 
 ### Configuring the service
