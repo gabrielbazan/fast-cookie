@@ -94,6 +94,30 @@ Check the API docs! http://localhost:{api_port}/docs
 And the alternative API docs! http://localhost:{api_port}/redoc
 
 
+## Set the repo up
+
+First, create the new repo in GitHub, GitLab, BitBucket, or whatever.
+
+Then, init the local repo:
+```shell
+git init
+```
+
+If you wish to use the local GIT hooks, install them:
+```shell
+python -m pip install pre-commit
+pre-commit install
+```
+
+Add all your changes and commit. On the first commit ``pre-commit`` will install the hooks, these are installed in 
+their own environments and will take a short while to install on the first run. Subsequent checks will be 
+significantly faster.
+```shell
+git add -A
+git commit -m "First commit"
+```
+
+
 ## Ok cool, so how do I add my awesome things?
 
 ### Configuring the service
@@ -290,26 +314,4 @@ def delete_todo(identifier: int, session: Session = Depends(session_scope)):
 ```shell
 cd {project_package_name}/{project_package_name}/api/api
 ./run_unit_tests.sh
-```
-
-
-### Initializing the repo, committing and running git hooks
-
-You need to init GIT before adding the hooks
-```shell
-git init
-```
-
-Install the pre-commit hooks:
-```shell
-python -m pip install pre-commit
-pre-commit install
-```
-
-Add all your changes and commit. On the first commit ``pre-commit`` will install the hooks, these are installed in 
-their own environments and will take a short while to install on the first run. Subsequent checks will be 
-significantly faster.
-```shell
-git add -A
-git commit -m "First commit"
 ```
