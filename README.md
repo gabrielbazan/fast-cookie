@@ -362,10 +362,3 @@ def delete_todo(identifier: int, session: Session = Depends(session_scope)):
 
 
 ### Adding unit tests
-
-### Running unit tests
-
-```shell
-cd {project_package_name}/{project_package_name}/api/api
-./run_unit_tests.sh
-```
