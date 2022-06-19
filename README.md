@@ -20,13 +20,13 @@ database, database migrations, session management methods, and serialization met
 
 ### Language
 
- * Python3.10
+ * [Python3.10](https://www.python.org/downloads/release/python-3100/)
 
 
 ### Containerization
 
- * Docker
- * Docker compose
+ * [Docker](https://www.docker.com/)
+ * [Docker compose](https://docs.docker.com/compose/)
 
 
 ### Web framework
