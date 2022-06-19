@@ -75,7 +75,6 @@ You'll be prompted to enter a few project config values:
 After creating your project from this template, just go to the docker-compose directory and start the containers:
 ```shell
 cd {project_package_name}/{project_package_name}
-docker compose build
 docker compose up
 ```
 
@@ -109,12 +108,19 @@ python -m pip install pre-commit
 pre-commit install
 ```
 
-Add all your changes and commit. On the first commit ``pre-commit`` will install the hooks, these are installed in 
-their own environments and will take a short while to install on the first run. Subsequent checks will be 
+Add all your changes and commit. If you've installed the local hooks, on the first commit ``pre-commit`` will 
+create their isolated environments and will take a short while on the first run. Subsequent checks will be 
 significantly faster.
 ```shell
 git add -A
 git commit -m "First commit"
+```
+
+Create your branch (I'll use 'main' in this example), add the remote and push:
+```shell
+git branch -M main
+git remote add origin git@github.com:{your_user}/{project_package_name}.git
+git push -u origin main
 ```
 
 
