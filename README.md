@@ -1,4 +1,4 @@
-# Fast Cookie - FastAPI Boilerplate
+# Fast Cookie
 
 Tired of reinventing the wheel everytime you start a [FastAPI](https://fastapi.tiangolo.com/) project? 
 This is for you!
@@ -6,26 +6,51 @@ This is for you!
 
 ## About
 
-Fast Cookie is a FastAPI project generator you can use to quickly get started with your idea, instead of reinventing the
-wheel. 
+Fast Cookie is a FastAPI project generator you can use to quickly start turning your idea into reality, without 
+reinventing the wheel. 
 
-You get a well-organized project, with a dockerized FastAPI API, CORS, a cool way to configure it, unit tests. From there, you can scale your project depending on what you need.
+You don't have to worry about how to organize, dockerize, and configue your new project. Not even how to add and run
+unit tests, or how to install GIT hooks. You get all that from the very beginning.
 
-GIT hooks for 
-code-formatting and code-style checking ([black](https://github.com/psf/black), [isort](https://github.com/PyCQA/isort), 
-[flake8](https://github.com/PyCQA/flake8))
-
-
-If you needed, you can also start with a relational database, [Alembic](https://alembic.sqlalchemy.org/en/latest/) 
-database migrations, session management methods,
-
-By default, it comes with a [PostgreSQL](https://www.postgresql.org/) database. 
-But as it uses [SQLAlchemy](https://www.sqlalchemy.org/), you can use any relational database. 
-Just [change the Docker image](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/docker-compose.yml#L12), 
-and [configure it](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/database.env).
+If you need a relational database, you don't even have to worry about that. You can start with a dockerized relational
+database, database migrations, session management methods, and serialization methods for your API.
 
 
-## How do I start my project from this template?
+## Stack
+
+### Language
+
+ * Python3.10
+
+
+### Containerization
+
+ * Docker
+ * Docker compose
+
+
+### Web framework
+
+ * [FastAPI](https://fastapi.tiangolo.com/)
+
+
+### Git hooks
+
+ * [Black](https://github.com/psf/black)
+ * [Isort](https://github.com/PyCQA/isort)
+ * [Flake8](https://github.com/PyCQA/flake8)
+
+
+### Database migrations
+
+If you choose to have a relational database, you get: 
+ * [SQLAlchemy](https://www.sqlalchemy.org/)
+ * [Alembic](https://alembic.sqlalchemy.org/en/latest/) database migrations
+ * A [PostgreSQL](https://www.postgresql.org/) dockerized instance. As this template uses SQLAlchemy, you can pretty
+    sure change it for any other RDBMS.
+
+
+## Get your project started
 
 Just [install cookiecutter](https://cookiecutter.readthedocs.io/en/stable/installation.html) 
 and run this (SSH):
@@ -38,25 +63,28 @@ Or this (HTTPS):
 cookiecutter https://github.com/gabrielbazan/fastapi_template_project.git
 ```
 
-You'll be prompted to enter a few project config values.
+You'll be prompted to enter a few project config values:
+ * Project name
+ * Project package name
+ * Host port number for your API
+ * Whether you need a relational database or not
 
 
-## How do I run my new project?
+## Running your project
 
-After creating your project from this template, just go to the docker-compose directory and
-start the containers:
+After creating your project from this template, just go to the docker-compose directory and start the containers:
 ```shell
 cd {project_package_name}/{project_package_name}
 docker compose build
 docker compose up
 ```
 
-And that's all. Your new API is now running in the port you specified.
+And that's all. Your new API is now running in the port you've specified.
 
 
-## How do I check if my new project is working?
+## Take a look at your running API
 
-Hit the API root with any browser. For example, with CURL (in the case where you're using port 5000):
+Hit the API root with any browser. For example, with CURL:
 ```shell
 curl localhost:{api_port}
 ```
