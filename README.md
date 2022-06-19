@@ -70,7 +70,7 @@ You'll be prompted to enter a few project config values:
  * Whether you need a relational database or not
 
 
-## Running your project
+## Run your project
 
 After creating your project from this template, just go to the docker-compose directory and start the containers:
 ```shell
