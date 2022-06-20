@@ -400,8 +400,8 @@ from fastapi import Depends
 from settings import settings, ROOT_ROUTE
 from database import Session, session_scope
 from database.models import Todo
-from serialization.serialization import paginate_list
-from serialization.models import TodoPaginatedList
+from serialization.model_serialization import paginate_list
+from serialization.todo_models import TodoPaginatedList
 
 
 @router.get(ROOT_ROUTE, response_model=TodoPaginatedList)
