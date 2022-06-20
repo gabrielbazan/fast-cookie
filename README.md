@@ -194,7 +194,7 @@ You can make your API do literally anything. Say we want to add a few endpoints 
 endpoints are grouped by routers. Then all we need to do is to add a router, register it to the API, and add endpoints 
 to it.
 
-__TL;DR__: [This](https://github.com/gabrielbazan/fast_cookie_without_db) is how this example looks like.
+__TL;DR__: [This](https://github.com/gabrielbazan/fast_cookie_example_without_db) is how this example looks like.
 
 
 #### Add a new router
@@ -302,7 +302,15 @@ def list_todos(
 
 ### Add API endpoints, with a relational database
 
+Say we want to add a few endpoints to manage a TODO list, which we'll store in a table in our database.
+
+
 #### Adding database models
+
+One way to create the new table in the DB is to declare our ORM model first, and from there generate a DB migration
+to get that table created in the database. Let's take this path, as it's the simplest and most practical.
+
+Create a _todos.py_ module in []
 
 ```python
 from sqlalchemy import Column, Integer, Text
