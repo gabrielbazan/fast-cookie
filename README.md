@@ -304,13 +304,18 @@ def list_todos(
 
 Say we want to add a few endpoints to manage a TODO list, which we'll store in a table in our database.
 
+__TL;DR__: [This](https://github.com/gabrielbazan/fast_cookie_example_with_db) is how this example looks like.
+
 
 #### Adding database models
 
 One way to create the new table in the DB is to declare our ORM model first, and from there generate a DB migration
 to get that table created in the database. Let's take this path, as it's the simplest and most practical.
 
-Create a _todos.py_ module in []
+Add the SQLAlchemy model in 
+[database/models.py](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/database/models.py).
+This is the mapping for our new "todo" table.
+
 
 ```python
 from sqlalchemy import Column, Integer, Text
