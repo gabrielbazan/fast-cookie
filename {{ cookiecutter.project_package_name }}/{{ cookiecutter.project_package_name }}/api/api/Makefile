@@ -37,6 +37,10 @@ run_unit_tests:
 
 
 {% if cookiecutter.add_database == 'Yes' %}
-alembic_migration:
-	./scripts/generate_alembic_migration.sh "${MESSAGE}"
+generate_database_migration:
+	@./scripts/generate_database_migration.sh "${MESSAGE}"
+
+
+migrate_database:
+	@./scripts/migrate_database.sh
 {% endif -%}

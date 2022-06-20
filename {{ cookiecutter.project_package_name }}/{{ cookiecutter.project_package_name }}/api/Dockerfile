@@ -28,7 +28,7 @@ RUN pip install -r ${REQUIREMENTS_FILENAME}
 
 
 {% if cookiecutter.add_database == 'Yes' %}
-CMD ./wait-service.sh ${DATABASE_HOST} ${DATABASE_PORT} && alembic upgrade head && uvicorn main:app --host ${API_HOST} --port ${API_PORT} --reload
+CMD ./wait-service.sh ${DATABASE_HOST} ${DATABASE_PORT} && uvicorn main:app --host ${API_HOST} --port ${API_PORT} --reload
 {% else -%}
 CMD uvicorn main:app --host ${API_HOST} --port ${API_PORT} --reload
 {% endif -%}

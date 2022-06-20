@@ -333,9 +333,24 @@ class Todo(Base):
 
 #### Adding database migrations
 
+Now is time to generate the database migrations from the model we've just added. With the services running, do the 
+following:
+
 ```shell
 cd {project_package_name}/api/api
-make alembic_migration MESSAGE="Add 'todo' table"
+make generate_database_migration MESSAGE="Add 'todo' table"
+```
+
+This will create a new file in 
+[alembic/versions](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/alembic/versions).
+Something like *{migration_id}_add_todo_table.py*. That's the Alembic migration to create the "todo" table.
+
+
+#### Applying migrations to the database
+
+```shell
+cd {project_package_name}/api/api
+make migrate_database
 ```
 
 
