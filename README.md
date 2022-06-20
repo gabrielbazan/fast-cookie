@@ -421,7 +421,7 @@ from fastapi import Depends, status
 from settings import ROOT_ROUTE
 from database import Session, session_scope
 from database.models import Todo
-from serialization.models import TodoModel, TodoCreateOrEdit
+from serialization.todo_models import TodoModel, TodoCreateOrEdit
 
 
 @router.post(
@@ -445,7 +445,7 @@ from fastapi import Depends
 from settings import IDENTIFIER_ROUTE
 from database import Session, session_scope
 from database.models import Todo
-from serialization.serialization import get_or_raise
+from serialization.model_serialization import get_or_raise
 from serialization.models import TodoModel
 
 
@@ -462,7 +462,7 @@ from fastapi import Depends
 from settings import IDENTIFIER_ROUTE
 from database import Session, session_scope
 from database.models import Todo
-from serialization.serialization import get_or_raise
+from serialization.model_serialization import get_or_raise
 from serialization.models import TodoModel, TodoCreateOrEdit
 
 
@@ -489,7 +489,7 @@ from fastapi import Depends, status, Response
 from settings import IDENTIFIER_ROUTE
 from database import Session, session_scope
 from database.models import Todo
-from serialization.serialization import get_or_raise
+from serialization.model_serialization import get_or_raise
 
 
 @router.delete(IDENTIFIER_ROUTE, status_code=status.HTTP_204_NO_CONTENT)
