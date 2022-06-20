@@ -298,7 +298,7 @@ def list_todos(
 ```
 
 
-### Add API endpoints, without a relational database
+### Add API endpoints, with a relational database
 
 #### Adding database models
 
