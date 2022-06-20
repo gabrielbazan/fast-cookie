@@ -351,7 +351,7 @@ class TodoPaginatedList(BasePaginatedList):
 
 #### Adding endpoints
 
-Before adding endpoints, you'll need to add a router. Refer to [add a new router](#add-a-new-router).
+Before adding endpoints, you'll need to [add a new router](#add-a-new-router) first.
 
 ```python
 from fastapi import Depends
