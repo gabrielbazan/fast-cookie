@@ -349,43 +349,9 @@ class TodoPaginatedList(BasePaginatedList):
 ```
 
 
-#### Adding routers
-
-```python
-from pydantic import BaseSettings
-
-
-class Settings(BaseSettings):
-    ...
-
-    todos_route: str = "/todos"
-    todos_tag: str = "Todos"
-
-    ...
-```
-
-
-```python
-from fastapi import APIRouter
-from settings import settings
-
-
-router = APIRouter(prefix=settings.todos_route, tags=[settings.todos_tag])
-```
-
-
-```python
-from typing import List
-from fastapi import APIRouter
-from . import todos
-
-
-# Add your APIRouters to this list
-ALL_ROUTERS: List[APIRouter] = [todos.router, ]
-```
-
-
 #### Adding endpoints
+
+Before adding endpoints, you'll need to add a router. Refer to [add a new router](#add-a-new-router).
 
 ```python
 from fastapi import Depends
@@ -396,6 +362,8 @@ from serialization.serialization import paginate_list
 from serialization.models import TodoPaginatedList
 
 
+##### List
+
 @router.get(ROOT_ROUTE, response_model=TodoPaginatedList)
 def list_todos(
     limit: int = settings.default_limit,
@@ -405,6 +373,8 @@ def list_todos(
     return paginate_list(session, Todo, offset, limit)
 ```
 
+
+##### Create
 
 ```python
 from fastapi import Depends, status
@@ -428,6 +398,8 @@ def create_todo(
 ```
 
 
+##### Get
+
 ```python
 from fastapi import Depends
 from settings import IDENTIFIER_ROUTE
@@ -442,6 +414,8 @@ def read_todo(identifier: int, session: Session = Depends(session_scope)):
     return get_or_raise(session, Todo, id=identifier)
 ```
 
+
+##### Update
 
 ```python
 from fastapi import Depends
@@ -467,6 +441,8 @@ def update_todo(
     return instance
 ```
 
+
+##### Delete
 
 ```python
 from fastapi import Depends, status, Response
