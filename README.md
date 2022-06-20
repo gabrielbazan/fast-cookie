@@ -358,6 +358,13 @@ make migrate_database
 
 #### Adding serialization models
 
+We'll create a couple of models so that we can serialize our data, and document its structure so that
+people can check our docs and know what to expect when they use our endpoints.
+
+Add a _todo_models.py_ in the 
+[serialization](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/serialization)
+package, with a couple of models:
+
 ```python
 from typing import List
 from pydantic import BaseModel
