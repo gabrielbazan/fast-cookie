@@ -353,6 +353,9 @@ class TodoPaginatedList(BasePaginatedList):
 
 Before adding endpoints, you'll need to [add a new router](#add-a-new-router) first.
 
+
+##### List
+
 ```python
 from fastapi import Depends
 from settings import settings, ROOT_ROUTE
@@ -361,8 +364,6 @@ from database.models import Todo
 from serialization.serialization import paginate_list
 from serialization.models import TodoPaginatedList
 
-
-##### List
 
 @router.get(ROOT_ROUTE, response_model=TodoPaginatedList)
 def list_todos(
