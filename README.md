@@ -270,6 +270,7 @@ class TodoPaginatedList(BasePaginatedList):
 Then, we add the endpoint to the router, in _routers/todos.py_:
 
 ```python
+from serialization.base_models import PaginatedListField
 from serialization.todo_models import TodoPaginatedList
 from settings import ROOT_ROUTE, settings
 
@@ -280,17 +281,19 @@ def list_todos(
     offset: int = settings.default_offset,
 ):
     # TODO: ... work your galactic magic here ...
+    results = [
+        {
+            "id": 1,
+            "name": "Feed the cat",
+        }
+    ]
+
     return {
-        "results": [
-            {
-                "id": 1,
-                "name": "Feed the cat",
-            }
-        ],
-        "total_count": 1,
-        "count": 1,
-        "limit": limit,
-        "offset": offset,
+        PaginatedListField.TOTAL_COUNT: 1,
+        PaginatedListField.COUNT: 1,
+        PaginatedListField.LIMIT: limit,
+        PaginatedListField.OFFSET: offset,
+        PaginatedListField.RESULTS: len(results),
     }
 ```
 
