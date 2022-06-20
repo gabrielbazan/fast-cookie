@@ -70,41 +70,23 @@ You'll be prompted to enter a few project config values:
  * Whether you need a relational database or not
 
 
-## Run your project
-
-After creating your project from this template, just go to the docker-compose directory and start the containers:
-```shell
-cd {project_package_name}/{project_package_name}
-docker compose up
-```
-
-And that's all. Your new API is now running in the port you've specified.
-
-
-## Take a look at your running API
-
-Hit the API root with any browser. For example, with CURL:
-```shell
-curl localhost:{api_port}
-```
-
-Check the API docs! http://localhost:{api_port}/docs
-
-And the alternative API docs! http://localhost:{api_port}/redoc
-
-
 ## Set the repo up
 
 First, create the new repo in GitHub, GitLab, BitBucket, or whatever.
 
-Then, init the local repo:
+Then, go into your new project's folder:
+```shell
+cd {project_package_name}
+```
+
+And init the local repo:
 ```shell
 git init
 ```
 
 If you wish to use the local GIT hooks, install them:
 ```shell
-python -m pip install pre-commit
+python3 -m pip install pre-commit
 pre-commit install
 ```
 
@@ -122,6 +104,29 @@ git branch -M main
 git remote add origin git@github.com:{your_user}/{project_package_name}.git
 git push -u origin main
 ```
+
+
+## Run your project
+
+From you new repo's root, just go to the docker-compose directory and start the containers:
+```shell
+cd {project_package_name}/
+docker compose up
+```
+
+And that's all. Your new API is now running in the port you've specified.
+
+
+## Take a look at your running API
+
+Hit the API root with any browser. For example, with CURL:
+```shell
+curl localhost:{api_port}
+```
+
+Check the API docs! http://localhost:{api_port}/docs
+
+And the alternative API docs! http://localhost:{api_port}/redoc
 
 
 ## Create the virtualenv
