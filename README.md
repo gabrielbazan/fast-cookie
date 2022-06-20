@@ -177,7 +177,56 @@ make run_unit_tests
 ```
 
 
-## Ok cool, so how do I add my awesome things?
+## Make your idea come true
+
+If, when creating your project from the template, you've decided to include a relational database, you'll have a containerized PostgreSQL instance, along with Alembic migrations and a bunch of very useful methods in your API, such as for session management, validation, serialization, and pagination.
+
+
+### Add new routers and endpoints, without a relational database
+
+You can make your API do literally anything. Say we want to add a few endpoints to manage a TODO list. Then all we need to do is to add a router, register the router in our API, and add endoints to our new router.
+
+
+#### Add a new router
+
+It's probably convenient to make our URI paths configurable in our API. You could just hardcode them, but say we want to be able to change them in our settings file ([settings.env](/cookie_test/api/api/settings.env)), with absolutely no impact in our code. Then on ([settings.py](/cookie_test/api/api/settings.py)) we'll add two new settings. One for the URI path (_todos_route_), and another to give the route a human-readable name for the API documentation (_todos_tag_). These are default values, meaning that if you change them in _settings.env_, the values in that file will be used instead.
+
+```python
+from pydantic import BaseSettings
+
+
+class Settings(BaseSettings):
+    ...
+    todos_route: str = "/todos"
+    todos_tag: str = "Todos"
+    ...
+```
+
+
+
+```python
+from fastapi import APIRouter
+from settings import settings
+
+
+router = APIRouter(prefix=settings.todos_route, tags=[settings.todos_tag])
+```
+
+
+```python
+from typing import List
+from fastapi import APIRouter
+from . import todos
+
+
+# Add your APIRouters to this list
+ALL_ROUTERS: List[APIRouter] = [todos.router, ]
+```
+
+
+#### Add a new endpoint
+
+
 
 ### Configuring the service
 
