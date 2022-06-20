@@ -189,7 +189,7 @@ You can make your API do literally anything. Say we want to add a few endpoints 
 
 #### Add a new router
 
-It's probably convenient to make our URI paths configurable in our API. You could just hardcode them, but say we want to be able to change them in our settings file ([settings.env](/cookie_test/api/api/settings.env)), with absolutely no impact in our code. Then on ([settings.py](/cookie_test/api/api/settings.py)) we'll add two new settings. One for the URI path (_todos_route_), and another to give the route a human-readable name for the API documentation (_todos_tag_). These are default values, meaning that if you change them in _settings.env_, the values in that file will be used instead.
+It's probably convenient to make our URI paths configurable in our API. You could just hardcode them, but say we want to be able to change them in our settings file ([settings.env](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/settings.env)), with absolutely no impact in our code. Then on ([settings.py](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/settings.py)) we'll add two new settings. One for the URI path (_todos_route_), and another to give the route a human-readable name for the API documentation (_todos_tag_). These are default values, meaning that if you change them in _settings.env_, the values in that file will be used instead.
 
 ```python
 from pydantic import BaseSettings
@@ -202,7 +202,7 @@ class Settings(BaseSettings):
     ...
 ```
 
-
+Then we'll add a new _todos.py_ module in [routers](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/routers), and add our new router with configurable path and tag:
 
 ```python
 from fastapi import APIRouter
@@ -212,6 +212,7 @@ from settings import settings
 router = APIRouter(prefix=settings.todos_route, tags=[settings.todos_tag])
 ```
 
+And then all that's left is register our router in the API, which is done by adding it to a list in [routers/__init__.py](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/routers/__init__.py):
 
 ```python
 from typing import List
