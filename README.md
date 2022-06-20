@@ -348,6 +348,8 @@ Something like *{migration_id}_add_todo_table.py*. That's the Alembic migration 
 
 #### Applying migrations to the database
 
+Simply do the following to upgrade the database to it's latest version. In our case, it runs the migration we've just 
+generated to create the "todo" table:
 ```shell
 cd {project_package_name}/api/api
 make migrate_database
