@@ -183,6 +183,10 @@ If, when creating your project from the template, you've decided to include a re
 containerized PostgreSQL instance, along with Alembic migrations and a bunch of very useful methods in your API, 
 such as for session management, validation, serialization, and pagination.
 
+Let me give you a reference of how you would build your API in two scenarios: With a relational database, and without it.
+This is just an example you can use as a reference, showing what's intended by the project's structure. But you can do
+it the way you like it. It's just a FastAPI API...
+
 
 ### Add API endpoints, without a relational database
 
