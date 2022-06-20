@@ -290,10 +290,10 @@ def list_todos(
 
     return {
         PaginatedListField.TOTAL_COUNT: 1,
-        PaginatedListField.COUNT: 1,
+        PaginatedListField.COUNT: len(results),
         PaginatedListField.LIMIT: limit,
         PaginatedListField.OFFSET: offset,
-        PaginatedListField.RESULTS: len(results),
+        PaginatedListField.RESULTS: results,
     }
 ```
 
