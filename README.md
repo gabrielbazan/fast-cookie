@@ -227,6 +227,41 @@ ALL_ROUTERS: List[APIRouter] = [todos.router, ]
 
 #### Add a new endpoint
 
+```python
+from typing import List
+from pydantic import BaseModel
+from serialization.base_models import BasePaginatedList
+
+
+class TodoModel(BaseModel):
+    id: int
+    name: str
+
+
+class TodoPaginatedList(BasePaginatedList):
+    results: List[TodoModel]
+```
+
+```python
+@router.get(ROOT_ROUTE, response_model=TodoPaginatedList)
+def list_todos(
+    limit: int = settings.default_limit,
+    offset: int = settings.default_offset,
+):
+    ... work your magic here ...
+    return {
+        "results": [
+            {
+                "id": 1,
+                "name": "Feed the cat",
+            }
+        ],
+        "total_count": 1,
+        "count": 1,
+        "limit": limit,
+        "offset": offset,
+    }
+```
 
 
 ### Configuring the service
