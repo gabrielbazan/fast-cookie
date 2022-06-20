@@ -194,6 +194,8 @@ You can make your API do literally anything. Say we want to add a few endpoints 
 endpoints are grouped by routers. Then all we need to do is to add a router, register it to the API, and add endpoints 
 to it.
 
+__TL;DR__: [This](https://github.com/gabrielbazan/fast_cookie_without_db) is how this example looks like.
+
 
 #### Add a new router
 
@@ -234,11 +236,11 @@ And then all that's left is register our router in the API, which is done by add
 ```python
 from typing import List
 from fastapi import APIRouter
-from . import todos
+from .todos import router as todos_router
 
 
 # Add your APIRouters to this list
-ALL_ROUTERS: List[APIRouter] = [todos.router, ]
+ALL_ROUTERS: List[APIRouter] = [todos_router]
 ```
 
 
