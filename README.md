@@ -67,7 +67,7 @@ You'll be prompted to enter a few project config values:
  * Project name (_project_name_): The human-friendly name of your project. Example: "TODO List Admin"
  * Project package name (_project_package_name_): The Python package name that will contain the code. Example: "todo_list_admin"
  * Host port number for your API (_api_port_): Host port where the API will be available when the project is up.
- * Whether you need a relational database or not (_add_database_): Whether you need a relational database in your project or not.
+ * Whether you need a relational database or not (_add_database_).
 
 
 ## Set the repo up
