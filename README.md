@@ -319,8 +319,8 @@ class Todo(Base):
 #### Adding database migrations
 
 ```shell
-cd {project_package_name}/{project_package_name}/api/api
-./generate_alembic_migration.sh "Add 'todo' table"
+cd {project_package_name}/api/api
+make alembic_migration MESSAGE="Add 'todo' table"
 ```
 
 
