@@ -514,5 +514,18 @@ def delete_todo(identifier: int, session: Session = Depends(session_scope)):
 
 ### Configuring the API service
 
+You can add as many settings you need to 
+[settings.py](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/settings.py).
+
+When adding settings, you can specify default values. 
+
+You can change the value of these settings in 
+[settings.env](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/settings.env). 
+If, for a setting, you set a value in this file, it overwrites the default one (if any).
+
 
 ### Adding unit tests
+
+Just add your unit tests to the 
+[tests](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/tests)
+package, and run them [this way](#run-unit-tests).
