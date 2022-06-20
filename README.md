@@ -392,8 +392,12 @@ class TodoPaginatedList(BasePaginatedList):
 
 Before adding endpoints, you'll need to [add a new router](#add-a-new-router) first.
 
+Let's add a few endpoints to the router, in _routers/todos.py_.
+
 
 ##### List
+
+This endpoint returns a paginated list of TODOs.
 
 ```python
 from fastapi import Depends
@@ -415,6 +419,8 @@ def list_todos(
 
 
 ##### Create
+
+This endpoint is to create a new TODO.
 
 ```python
 from fastapi import Depends, status
@@ -440,6 +446,8 @@ def create_todo(
 
 ##### Get
 
+This endpoint is to get an existing TODO. Returns 404 (Not found) if it does not exist.
+
 ```python
 from fastapi import Depends
 from settings import IDENTIFIER_ROUTE
@@ -456,6 +464,8 @@ def read_todo(identifier: int, session: Session = Depends(session_scope)):
 
 
 ##### Update
+
+This endpoint is to update an existing TODO. Returns 404 (Not found) if it does not exist.
 
 ```python
 from fastapi import Depends
@@ -483,6 +493,8 @@ def update_todo(
 
 
 ##### Delete
+
+This endpoint is to delete an existing TODO. Returns 404 (Not found) if it does not exist.
 
 ```python
 from fastapi import Depends, status, Response
