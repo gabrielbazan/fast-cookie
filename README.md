@@ -184,10 +184,11 @@ containerized PostgreSQL instance, along with Alembic migrations and a bunch of 
 such as for session management, validation, serialization, and pagination.
 
 
-### Add new routers and endpoints, without a relational database
+### Add API endpoints, without a relational database
 
-You can make your API do literally anything. Say we want to add a few endpoints to manage a TODO list. Then all we need 
-to do is to add a router, register to the API, and add endpoints to it.
+You can make your API do literally anything. Say we want to add a few endpoints to manage a TODO list. In FastAPI, 
+endpoints are grouped by routers. Then all we need to do is to add a router, register it to the API, and add endpoints 
+to it.
 
 
 #### Add a new router
@@ -290,10 +291,9 @@ def list_todos(
 ```
 
 
-### Configuring the service
+### Add API endpoints, without a relational database
 
-
-### Adding database models
+#### Adding database models
 
 ```python
 from sqlalchemy import Column, Integer, Text
@@ -309,7 +309,7 @@ class Todo(Base):
 ```
 
 
-### Adding database migrations
+#### Adding database migrations
 
 ```shell
 cd {project_package_name}/{project_package_name}/api/api
@@ -317,7 +317,7 @@ cd {project_package_name}/{project_package_name}/api/api
 ```
 
 
-### Adding serialization models
+#### Adding serialization models
 
 ```python
 from typing import List
@@ -342,7 +342,7 @@ class TodoPaginatedList(BasePaginatedList):
 ```
 
 
-### Adding routers
+#### Adding routers
 
 ```python
 from pydantic import BaseSettings
@@ -378,7 +378,7 @@ ALL_ROUTERS: List[APIRouter] = [todos.router, ]
 ```
 
 
-### Adding endpoints
+#### Adding endpoints
 
 ```python
 from fastapi import Depends
@@ -475,6 +475,9 @@ def delete_todo(identifier: int, session: Session = Depends(session_scope)):
     session.delete(instance)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 ```
+
+
+### Configuring the API service
 
 
 ### Adding unit tests
