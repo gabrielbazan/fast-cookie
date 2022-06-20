@@ -6,14 +6,13 @@ This is for you!
 
 ## About
 
-Fast Cookie is a FastAPI project generator you can use to quickly start turning your idea into reality, without 
-reinventing the wheel. 
+Everytime people need to start a new project, they have to figure out the best ways to do things like: How to organize
+the project structure, and how to dockerize, how to run, how to connect with a database, handle sessions, validate,
+serialize data, configure the service, requirements, virtual environments, run unit tests, lint, check code styling, 
+GIT hooks, and the list goes on...
 
-You don't have to worry about how to organize, dockerize, and configue your new project. Not even how to add and run
-unit tests, or how to install GIT hooks. You get all that from the very beginning.
-
-If you need a relational database, you don't even have to worry about that. You can start with a dockerized relational
-database, database migrations, session management methods, and serialization methods for your API.
+Fast Cookie is a FastAPI project generator that takes care of all these things beforehand, so you can quickly start 
+making your idea come true, without reinventing the wheel. You get all that from the very beginning.
 
 
 ## Stack
@@ -36,12 +35,13 @@ database, database migrations, session management methods, and serialization met
 
 ### Git hooks
 
+ * [Pre-commit](https://pre-commit.com/)
  * [Black](https://github.com/psf/black)
  * [Isort](https://github.com/PyCQA/isort)
  * [Flake8](https://github.com/PyCQA/flake8)
 
 
-### Database migrations
+### Relational database, ORM, and migrations
 
 If you choose to have a relational database, you get: 
  * [SQLAlchemy](https://www.sqlalchemy.org/)
@@ -64,10 +64,10 @@ cookiecutter https://github.com/gabrielbazan/fastapi_template_project.git
 ```
 
 You'll be prompted to enter a few project config values:
- * Project name
- * Project package name
- * Host port number for your API
- * Whether you need a relational database or not
+ * Project name (_project_name_): The human-friendly name of your project. Example: "TODO List Admin"
+ * Project package name (_project_package_name_): The Python package name that will contain the code. Example: "todo_list_admin"
+ * Host port number for your API (_api_port_): Host port where the API will be available when the project is up.
+ * Whether you need a relational database or not (_add_database_): Whether you need a relational database in your project or not.
 
 
 ## Set the repo up
@@ -98,7 +98,7 @@ git add -A
 git commit -m "First commit"
 ```
 
-Create your branch (I'll use 'main' in this example), add the remote and push:
+Create your branch (I'll use 'main' in this example), add the remote, and push:
 ```shell
 git branch -M main
 git remote add origin git@github.com:{your_user}/{project_package_name}.git
@@ -132,8 +132,8 @@ And the alternative API docs! http://localhost:{api_port}/redoc
 ## Create the virtualenv
 
 You can install the API's requirements, and its test requirements, in a virtualenv. This way, you can keep your system
-interpreter clean. You can then use this virtualenv to run unit tests, and also your IDE can inspect packages from there
-(for autocompletion and such).
+interpreter clean. You can then use this virtualenv to run unit tests, and also configure your IDE to inspect packages 
+from there (for autocompletion and such).
 
 First, go to the API directory:
 ```shell
@@ -163,15 +163,15 @@ make install_test_reqs_in_venv
 ## Run unit tests
 
 The template comes with some unit tests, which you can already run. As you add unit tests, you can run them the same
-way too.
+way.
 
 First, make sure you're in the API directory:
 ```shell
 cd api/api/
 ```
 
-After creating the virtualenv, and installed the requirements and test requirements, run the following to run all unit
-tests:
+After creating the virtualenv, and installed the requirements (including test requirements), run the following to run 
+all unit tests:
 ```shell
 make run_unit_tests
 ```
@@ -179,17 +179,26 @@ make run_unit_tests
 
 ## Make your idea come true
 
-If, when creating your project from the template, you've decided to include a relational database, you'll have a containerized PostgreSQL instance, along with Alembic migrations and a bunch of very useful methods in your API, such as for session management, validation, serialization, and pagination.
+If, when creating your project from the template, you've decided to include a relational database, you'll have a 
+containerized PostgreSQL instance, along with Alembic migrations and a bunch of very useful methods in your API, 
+such as for session management, validation, serialization, and pagination.
 
 
 ### Add new routers and endpoints, without a relational database
 
-You can make your API do literally anything. Say we want to add a few endpoints to manage a TODO list. Then all we need to do is to add a router, register the router in our API, and add endoints to our new router.
+You can make your API do literally anything. Say we want to add a few endpoints to manage a TODO list. Then all we need 
+to do is to add a router, register to the API, and add endpoints to it.
 
 
 #### Add a new router
 
-It's probably convenient to make our URI paths configurable in our API. You could just hardcode them, but say we want to be able to change them in our settings file ([settings.env](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/settings.env)), with absolutely no impact in our code. Then on ([settings.py](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/settings.py)) we'll add two new settings. One for the URI path (_todos_route_), and another to give the route a human-readable name for the API documentation (_todos_tag_). These are default values, meaning that if you change them in _settings.env_, the values in that file will be used instead.
+It's probably convenient to make our URI paths configurable in our API. You could just hardcode them, but say we want 
+to be able to change them in our settings file 
+([settings.env](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/settings.env)), 
+with absolutely no impact in our code. Then on 
+([settings.py](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/settings.py)) 
+we'll add two new settings. One for the URI path (_todos_route_), and another to give the route a human-readable name for the API documentation 
+(_todos_tag_). These are default values, meaning that if you change them in _settings.env_, the values in that file will be used instead.
 
 ```python
 from pydantic import BaseSettings
@@ -202,7 +211,9 @@ class Settings(BaseSettings):
     ...
 ```
 
-Then we'll add a new _todos.py_ module in [routers](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/routers), and add our new router with configurable path and tag:
+Then we'll add a new _todos.py_ module in 
+[routers](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/routers), 
+and add our new router with configurable path and tag:
 
 ```python
 from fastapi import APIRouter
@@ -212,7 +223,8 @@ from settings import settings
 router = APIRouter(prefix=settings.todos_route, tags=[settings.todos_tag])
 ```
 
-And then all that's left is register our router in the API, which is done by adding it to a list in [routers/__init__.py](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/routers/__init__.py):
+And then all that's left is register our router in the API, which is done by adding it to a list in 
+[routers/__init__.py](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/routers/__init__.py):
 
 ```python
 from typing import List
@@ -227,6 +239,14 @@ ALL_ROUTERS: List[APIRouter] = [todos.router, ]
 
 #### Add a new endpoint
 
+Say we want to add an endpoint to list TODOs.
+
+First, we'll need to create a couple of models so that we can serialize our data, and document its structure so that
+people can check our docs and know what to expect when they use our endpoints.
+
+So we add a _todo_models.py_ in the 
+[serialization](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/serialization)
+package, with a couple of models:
 ```python
 from typing import List
 from pydantic import BaseModel
@@ -242,13 +262,19 @@ class TodoPaginatedList(BasePaginatedList):
     results: List[TodoModel]
 ```
 
+Then, we add the endpoint to the router, in _routers/todos.py_:
+
 ```python
+from serialization.todo_models import TodoPaginatedList
+from settings import ROOT_ROUTE, settings
+
+
 @router.get(ROOT_ROUTE, response_model=TodoPaginatedList)
 def list_todos(
     limit: int = settings.default_limit,
     offset: int = settings.default_offset,
 ):
-    ... work your magic here ...
+    # TODO: ... work your galactic magic here ...
     return {
         "results": [
             {
