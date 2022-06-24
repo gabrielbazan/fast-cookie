@@ -1,0 +1,6 @@
+{
+  "project_name": "FastAPI Template Project",
+  "project_package_name": "fastapi_template_project",
+  "api_port": 5000,
+  "add_database": ["Yes", "No"]
+}
