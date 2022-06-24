@@ -529,3 +529,13 @@ If, for a setting, you set a value in this file, it overwrites the default one (
 Just add your unit tests to the 
 [tests](/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/%7B%7B%20cookiecutter.project_package_name%20%7D%7D/api/api/tests)
 package, and run them [this way](#run-unit-tests).
+
+
+## Ideas
+
+  * Add an option to just generate a Python project (without FastAPI).
+
+
+## Contribute
+
+  * Feel free to contribute!
